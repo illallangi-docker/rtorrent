@@ -89,3 +89,7 @@ encryption = allow_incoming,enable_retry,prefer_plaintext
 # Enable peer exchange (for torrents not marked private)
 #
 # peer_exchange = yes
+
+{% if ansible_env.RTORRENT_SCGI_PORT is defined %}
+scgi_port = 0.0.0.0:{{ ansible_env.RTORRENT_SCGI_PORT }}
+{% endif %}
