@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+    - yum:
+        name:  "{{ item }}"
+        state: "present"
+      with_items:
+        - "rtorrent"
+    - user:
+        name:  "rtorrent"
+        state: "present"
+        home:  "/var/lib/rtorrent"
+        uid:   1061

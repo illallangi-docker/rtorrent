@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+    - file:
+        path:  "{{ item }}"
+        state: "directory"
+      with_items:
+        - "{{ ansible_env.RTORRENT_COMPLETE_PATH }}"
+        - "{{ ansible_env.RTORRENT_DOWNLOAD_PATH }}"
+        - "{{ ansible_env.RTORRENT_WATCH_PATH }}"
+        - "{{ ansible_env.HOME }}/.rtorrent"
+    - template:
+        src:   "rtorrent.rc.j2"
+        dest:  "~/.rtorrent.rc"
