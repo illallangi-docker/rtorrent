@@ -1,4 +1,4 @@
-FROM illallangi/base:latest as image
+FROM illallangi/ansible:latest as image
 
 COPY image/* /etc/ansible.d/image/
 RUN /usr/local/bin/ansible-runner.sh image
